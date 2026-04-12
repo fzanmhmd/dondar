@@ -5,7 +5,7 @@ function initDatabase() {
     // Cek apakah data petugas sudah ada, kalau belum buat default
     if (!localStorage.getItem('petugas')) {
         const defaultPetugas = [
-            { id: 'PTG001', password: '1234', nama: 'Budi Santoso', status: 'aktif' },
+            { id: 'OJAN', password: '1234', nama: 'Muhammad Fauzan', status: 'aktif' },
             { id: 'PTG002', password: 'abcd', nama: 'Siti Rahayu', status: 'aktif' }
         ];
         localStorage.setItem('petugas', JSON.stringify(defaultPetugas));
@@ -117,30 +117,6 @@ document.getElementById('ginpendonor').addEventListener('click', function () {
     } else {
         tampilkanError('form-pendonor', 'No. HP atau Password salah!');
     }
-});
-
-
-// =====================
-// MINTA AKSES PETUGAS
-// =====================
-document.getElementById('mintaakses').addEventListener('click', function () {
-    window.location.href = 'minta-akses.html';
-});
-
-
-// =====================
-// DAFTAR PENDONOR
-// =====================
-document.getElementById('daftar').addEventListener('click', function () {
-    window.location.href = 'daftar.html';
-});
-
-
-// =====================
-// LUPA PASSWORD
-// =====================
-document.getElementById('lupapw').addEventListener('click', function () {
-    window.location.href = 'lupa-password.html';
 });
 
 
