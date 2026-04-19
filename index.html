@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonDar</title>
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+    <div class="card-login">
+        <div class="header-login">
+            <img src="assets/images/logodondar.png" alt="logoDonDar">
+            <h1>Don<highligh>Dar</highligh></h1>
+        </div>
+        <div class="toogle">
+            <div class="slider"></div>
+            <button onclick="setRole('petugas')">Petugas</button>
+            <button onclick="setRole('pendonor')">Pendonor</button>
+        </div>
+        <!-- Form Petugas -->
+        <div class="form-section" id="form-petugas">
+            <div class="input-login">
+                <input type="text" required placeholder=" ">
+                <span>ID Petugas</span>
+            </div>
+            <div class="input-login">
+                <input type="password" required placeholder=" ">
+                <span>Password</span>
+            </div>
+            <button type="submit" class="submit" id="ginpetugas">Login</button>
+            <button type="submit" class="submit" id="lupapw" onclick="window.location.href='/pages/auth/minta-akses.html'">Minta Akses</button>
+        </div>
+
+        <!-- Form Pendonor -->
+        <div class="form-section hidden" id="form-pendonor">
+            <div class="input-login">
+                <input type="text" required placeholder=" ">
+                <span>No.hp</span>
+            </div>
+            <div class="input-login">
+                <input type="password" required placeholder=" ">
+                <span>Password</span>
+            </div>
+            <button type="submit" class="submit" id="ginpendonor">Login</button>
+            <div class="opsiloginpendonor">
+                <p>Belum punya akun? Daftar dibawah.</p>
+                <button type="submit" class="submit" id="daftar" onclick="window.location.href='/pages/auth/daftar.html'">Daftar Baru</button>
+                <button type="submit" class="submit" id="lupapw" onclick="window.location.href='/pages/auth/lupapassword.html'">Lupa Password</button>
+            </div>
+        </div>
+    </div>    
+
+    <script src="assets/js/app.js"></script>
+    <footer>
+        <hr>
+        No Copyright
+    </footer>
+
+</body>
+</html>
