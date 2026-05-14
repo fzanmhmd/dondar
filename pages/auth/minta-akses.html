@@ -1,53 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minta Akses - DonDar</title>
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <title>Minta Akses Petugas - DonDar</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <script src="../../assets/js/core/database.js" defer></script>
+    <script src="../../assets/js/core/ui.js" defer></script>
+    <script src="../../assets/js/pages/minta-akses.js" defer></script>
 </head>
-<body>
-    <div class="card-login" style="gap:15px;">
-        <h3 style="color:white; margin:0;">Minta Akses Petugas</h3>
-        <p style="color:white; font-size:12px; text-align:center; margin:0;">
-            Permintaan akan diproses oleh admin.
-        </p>
+<body class="auth-page">
+    <main class="auth-layout">
+        <section class="auth-card" aria-labelledby="title-akses">
+            <div class="brand">
+                <img src="../../assets/images/logodondar.png" alt="Logo DonDar">
+                <div>
+                    <p class="eyebrow">Petugas Baru</p>
+                    <h1 id="title-akses">Minta Akses</h1>
+                </div>
+            </div>
 
-        <div class="input-login">
-            <input type="text" id="nama-minta" placeholder=" " required>
-            <span>Nama Lengkap</span>
-        </div>
-        <div class="input-login">
-            <input type="text" id="nohp-minta" placeholder=" " required>
-            <span>No. HP</span>
-        </div>
-        <div class="input-login">
-            <input type="text" id="alasan" placeholder=" " required>
-            <span>Alasan / Jabatan</span>
-        </div>
+            <form class="form-stack" id="form-minta-akses" novalidate>
+                <div class="field">
+                    <label for="nama-minta">Nama Lengkap</label>
+                    <input id="nama-minta" type="text" autocomplete="name">
+                </div>
+                <div class="field">
+                    <label for="nohp-minta">No. HP</label>
+                    <input id="nohp-minta" type="tel" autocomplete="tel">
+                </div>
+                <div class="field">
+                    <label for="alasan">Alasan / Jabatan</label>
+                    <textarea id="alasan" placeholder="Contoh: relawan donor darah wilayah kecamatan"></textarea>
+                </div>
+                <button class="btn primary" type="submit">Kirim Permintaan</button>
+                <a class="text-link" href="../../index.html">Kembali login</a>
+            </form>
+        </section>
 
-        <button class="submit" id="btn-minta">Kirim Permintaan</button>
-        <button class="submit" onclick="window.location.href='/index.html'">Kembali</button>
-    </div>
-
-    <script>
-        document.getElementById('btn-minta').addEventListener('click', function () {
-            const nama = document.getElementById('nama-minta').value.trim();
-            const nohp = document.getElementById('nohp-minta').value.trim();
-            const alasan = document.getElementById('alasan').value.trim();
-
-            if (!nama || !nohp || !alasan) {
-                alert('Semua kolom harus diisi!'); return;
-            }
-
-            // Simpan permintaan
-            const permintaan = JSON.parse(localStorage.getItem('permintaan_akses')) || [];
-            permintaan.push({ nama, nohp, alasan, waktu: new Date().toLocaleString() });
-            localStorage.setItem('permintaan_akses', JSON.stringify(permintaan));
-
-            alert('Permintaan berhasil dikirim! Tunggu konfirmasi dari admin.');
-            window.location.href = '/index.html';
-        });
-    </script>
+        <aside class="info-panel">
+            <h2>Proses Akses</h2>
+            <p class="muted">Permintaan masuk ke dashboard petugas dan bisa disetujui dari menu akses.</p>
+        </aside>
+    </main>
 </body>
 </html>

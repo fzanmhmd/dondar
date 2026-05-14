@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Pendonor - DonDar</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <script src="../../assets/js/core/database.js" defer></script>
+    <script src="../../assets/js/core/ui.js" defer></script>
+    <script src="../../assets/js/core/session.js" defer></script>
+    <script src="../../assets/js/pages/dashboard-pendonor.js" defer></script>
+</head>
+<body class="app-page">
+    <header class="app-header">
+        <div class="brand small">
+            <img src="../../assets/images/logodondar.png" alt="Logo DonDar">
+            <div>
+                <p class="eyebrow">Dashboard Pendonor</p>
+                <h2>Don<span>Dar</span></h2>
+            </div>
+        </div>
+        <div class="header-actions">
+            <span id="nama-user"></span>
+            <button class="btn ghost" id="btn-logout" type="button">Keluar</button>
+        </div>
+    </header>
+
+    <main class="dashboard-layout">
+        <section class="stats-row" aria-label="Ringkasan pendonor">
+            <article class="stat-box">
+                <span>Riwayat Donor</span>
+                <strong id="stat-riwayat">0</strong>
+            </article>
+            <article class="stat-box">
+                <span>Booking</span>
+                <strong id="stat-booking">0</strong>
+            </article>
+            <article class="stat-box">
+                <span>Stok Gol. Saya</span>
+                <strong id="stat-stok">0</strong>
+            </article>
+            <article class="stat-box">
+                <span>Status Umum</span>
+                <strong id="stat-status">OK</strong>
+            </article>
+        </section>
+
+        <div class="dashboard-grid">
+            <section class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Data Saya</h2>
+                        <p class="muted">Data dari akun aktif.</p>
+                    </div>
+                </div>
+                <div class="summary-list">
+                    <div class="summary-item">
+                        <span>Nama</span>
+                        <strong id="profile-name">-</strong>
+                    </div>
+                    <div class="summary-item">
+                        <span>No. HP</span>
+                        <strong id="profile-phone">-</strong>
+                    </div>
+                    <div class="summary-item">
+                        <span>Golongan</span>
+                        <strong id="profile-blood">-</strong>
+                    </div>
+                    <div class="summary-item">
+                        <span>Kota</span>
+                        <strong id="profile-city">-</strong>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Cek Kelayakan</h2>
+                        <p class="muted">Berdasarkan data dasar pendonor.</p>
+                    </div>
+                </div>
+                <ul class="check-list" id="eligibility-list"></ul>
+            </section>
+        </div>
+
+        <section class="panel">
+            <div class="panel-heading">
+                <div>
+                    <h2>Booking Jadwal Donor</h2>
+                    <p class="muted">Jadwal aktif yang tersedia.</p>
+                </div>
+            </div>
+            <form class="form-stack" id="form-booking" novalidate>
+                <div class="two-column-form">
+                    <div class="field">
+                        <label for="jadwal-booking">Jadwal</label>
+                        <select id="jadwal-booking"></select>
+                    </div>
+                    <div class="field">
+                        <label for="catatan-booking">Catatan</label>
+                        <input id="catatan-booking" type="text" placeholder="Opsional">
+                    </div>
+                </div>
+                <button class="btn primary" type="submit">Buat Booking</button>
+            </form>
+        </section>
+
+        <div class="dashboard-grid">
+            <section class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Booking Saya</h2>
+                        <p class="muted">Daftar pengajuan jadwal.</p>
+                    </div>
+                </div>
+                <div class="table-wrap">
+                    <table id="tabel-booking">
+                        <thead>
+                            <tr>
+                                <th>Tanggal</th>
+                                <th>Lokasi</th>
+                                <th>Status</th>
+                                <th>Catatan</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Riwayat Saya</h2>
+                        <p class="muted">Catatan donor selesai.</p>
+                    </div>
+                </div>
+                <div class="table-wrap">
+                    <table id="tabel-riwayat">
+                        <thead>
+                            <tr>
+                                <th>Tanggal</th>
+                                <th>Lokasi</th>
+                                <th>Volume</th>
+                                <th>Petugas</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

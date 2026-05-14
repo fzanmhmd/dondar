@@ -1,62 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DonDar</title>
-    <link rel="icon" href="">
+    <title>Masuk - DonDar</title>
+    <link rel="icon" href="assets/images/logodondar.png">
     <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/core/database.js" defer></script>
+    <script src="assets/js/core/ui.js" defer></script>
+    <script src="assets/js/core/session.js" defer></script>
+    <script src="assets/js/pages/login.js" defer></script>
 </head>
+<body class="auth-page">
+    <main class="auth-layout">
+        <section class="auth-card" aria-labelledby="login-title">
+            <div class="brand">
+                <img src="assets/images/logodondar.png" alt="Logo DonDar">
+                <div>
+                    <p class="eyebrow">Aplikasi Donor Darah</p>
+                    <h1 id="login-title">Don<span>Dar</span></h1>
+                </div>
+            </div>
 
-<body>
-    <div class="card-login">
-        <div class="header-login">
-            <img src="assets/images/logodondar.png" alt="logoDonDar">
-            <h1>Don<highligh>Dar</highligh></h1>
-        </div>
-        <div class="toogle">
-            <div class="slider"></div>
-            <button onclick="setRole('petugas')">Petugas</button>
-            <button onclick="setRole('pendonor')">Pendonor</button>
-        </div>
-        <!-- Form Petugas -->
-        <div class="form-section" id="form-petugas">
-            <div class="input-login">
-                <input type="text" required placeholder=" ">
-                <span>ID Petugas</span>
+            <div class="role-switch" aria-label="Pilih role login">
+                <button class="active" type="button" data-role="petugas">Petugas</button>
+                <button type="button" data-role="pendonor">Pendonor</button>
             </div>
-            <div class="input-login">
-                <input type="password" required placeholder=" ">
-                <span>Password</span>
-            </div>
-            <button type="submit" class="submit" id="ginpetugas">Login</button>
-            <button type="submit" class="submit" id="lupapw" onclick="window.location.href='/pages/auth/minta-akses.html'">Minta Akses</button>
-        </div>
 
-        <!-- Form Pendonor -->
-        <div class="form-section hidden" id="form-pendonor">
-            <div class="input-login">
-                <input type="text" required placeholder=" ">
-                <span>No.hp</span>
-            </div>
-            <div class="input-login">
-                <input type="password" required placeholder=" ">
-                <span>Password</span>
-            </div>
-            <button type="submit" class="submit" id="ginpendonor">Login</button>
-            <div class="opsiloginpendonor">
-                <p>Belum punya akun? Daftar dibawah.</p>
-                <button type="submit" class="submit" id="daftar" onclick="window.location.href='/pages/auth/daftar.html'">Daftar Baru</button>
-                <button type="submit" class="submit" id="lupapw" onclick="window.location.href='/pages/auth/lupapassword.html'">Lupa Password</button>
-            </div>
-        </div>
-    </div>    
+            <form class="form-stack" id="form-petugas" novalidate>
+                <div class="field">
+                    <label for="id-petugas">ID Petugas</label>
+                    <input id="id-petugas" name="idPetugas" type="text" autocomplete="username">
+                </div>
+                <div class="field">
+                    <label for="password-petugas">Password</label>
+                    <input id="password-petugas" name="password" type="password" autocomplete="current-password">
+                </div>
+                <button class="btn primary" type="submit">Login Petugas</button>
+                <a class="text-link" href="pages/auth/minta-akses.html">Minta akses petugas</a>
+            </form>
 
-    <script src="assets/js/app.js"></script>
-    <footer>
-        <hr>
-        No Copyright
-    </footer>
+            <form class="form-stack" id="form-pendonor" hidden novalidate>
+                <div class="field">
+                    <label for="nohp-pendonor">No. HP</label>
+                    <input id="nohp-pendonor" name="nohp" type="tel" autocomplete="tel">
+                </div>
+                <div class="field">
+                    <label for="password-pendonor">Password</label>
+                    <input id="password-pendonor" name="password" type="password" autocomplete="current-password">
+                </div>
+                <button class="btn primary" type="submit">Login Pendonor</button>
+                <div class="link-row">
+                    <a class="text-link" href="pages/auth/daftar.html">Daftar baru</a>
+                    <a class="text-link" href="pages/auth/lupa-password.html">Lupa password</a>
+                </div>
+            </form>
+        </section>
 
+        <aside class="info-panel" aria-label="Informasi ringkas DonDar">
+            <h2>Status Hari Ini</h2>
+            <div class="summary-list" id="login-stock-list"></div>
+            <div class="simple-note">
+                <strong>Create by Muhammad Fauzan. All Right Reserved</strong>
+            </div>
+        </aside>
+    </main>
 </body>
 </html>

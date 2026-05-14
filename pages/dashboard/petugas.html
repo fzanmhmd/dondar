@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Petugas - DonDar</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <script src="../../assets/js/core/database.js" defer></script>
+    <script src="../../assets/js/core/ui.js" defer></script>
+    <script src="../../assets/js/core/session.js" defer></script>
+    <script src="../../assets/js/pages/dashboard-petugas.js" defer></script>
+</head>
+<body class="app-page">
+    <header class="app-header">
+        <div class="brand small">
+            <img src="../../assets/images/logodondar.png" alt="Logo DonDar">
+            <div>
+                <p class="eyebrow">Dashboard Petugas</p>
+                <h2>Don<span>Dar</span></h2>
+            </div>
+        </div>
+        <div class="header-actions">
+            <span id="nama-user"></span>
+            <button class="btn ghost" id="btn-logout" type="button">Keluar</button>
+        </div>
+    </header>
+
+    <main class="dashboard-layout">
+        <section class="stats-row" aria-label="Ringkasan petugas">
+            <article class="stat-box">
+                <span>Pendonor</span>
+                <strong id="stat-pendonor">0</strong>
+            </article>
+            <article class="stat-box">
+                <span>Total Stok</span>
+                <strong id="stat-stok">0</strong>
+            </article>
+            <article class="stat-box">
+                <span>Booking Baru</span>
+                <strong id="stat-booking">0</strong>
+            </article>
+            <article class="stat-box">
+                <span>Akses Pending</span>
+                <strong id="stat-akses">0</strong>
+            </article>
+        </section>
+
+        <section class="panel">
+            <div class="panel-heading">
+                <div>
+                    <h2>Jadwal Donor</h2>
+                    <p class="muted">Agenda donor aktif.</p>
+                </div>
+            </div>
+            <form class="inline-form" id="form-jadwal" novalidate>
+                <div class="field">
+                    <label for="jadwal-tanggal">Tanggal</label>
+                    <input id="jadwal-tanggal" type="date">
+                </div>
+                <div class="field">
+                    <label for="jadwal-lokasi">Lokasi</label>
+                    <input id="jadwal-lokasi" type="text" placeholder="Contoh: PMI Kota">
+                </div>
+                <div class="field">
+                    <label for="jadwal-kuota">Kuota</label>
+                    <input id="jadwal-kuota" type="number" min="1" value="20">
+                </div>
+                <button class="btn primary" type="submit">Tambah</button>
+            </form>
+            <div class="table-wrap">
+                <table id="tabel-jadwal">
+                    <thead>
+                        <tr>
+                            <th>Tanggal</th>
+                            <th>Lokasi</th>
+                            <th>Kuota</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="dashboard-grid">
+            <section class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Stok Darah</h2>
+                        <p class="muted">Jumlah kantong per golongan.</p>
+                    </div>
+                </div>
+                <div class="table-wrap">
+                    <table id="tabel-stok">
+                        <thead>
+                            <tr>
+                                <th>Golongan</th>
+                                <th>Stok</th>
+                                <th>Minimal</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Booking Donor</h2>
+                        <p class="muted">Pengajuan dari pendonor.</p>
+                    </div>
+                </div>
+                <div class="table-wrap">
+                    <table id="tabel-booking">
+                        <thead>
+                            <tr>
+                                <th>Pendonor</th>
+                                <th>Jadwal</th>
+                                <th>Catatan</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+        <section class="panel">
+            <div class="panel-heading">
+                <div>
+                    <h2>Permintaan Akses Petugas</h2>
+                    <p class="muted">Akun baru dari permintaan akses.</p>
+                </div>
+            </div>
+            <div class="table-wrap">
+                <table id="tabel-akses">
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>Alasan</th>
+                            <th>Waktu</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-heading">
+                <div>
+                    <h2>Data Pendonor</h2>
+                    <p class="muted">Data pendaftaran pendonor.</p>
+                </div>
+            </div>
+            <div class="table-wrap">
+                <table id="tabel-pendonor">
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>Golongan</th>
+                            <th>Usia / Berat</th>
+                            <th>Kota</th>
+                            <th>Donor Terakhir</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
